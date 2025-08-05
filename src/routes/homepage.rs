@@ -5,9 +5,14 @@ use crate::builders::webpage::WebPageBuilder;
 
 pub async fn index() -> Html<String> {
     let page = WebPageBuilder::new().body(html! {
-        h1."text-2xl font-bold" { "Walrus Thing" }
-        a href="/host" class="border border-black p-2 rounded-md hover:cursor-pointer" {
-            "Host Game"
+        main."flex flex-col gap-2 p-8" {
+            h1."text-2xl font-bold" { "Ms. Walrus" }
+            h2."text-lg" {"Single, proud, and tusks ready for some music."}
+            div."py-2" {
+                a href="/host" class="border border-black p-2 rounded-md hover:cursor-pointer" {
+                    "Host Game"
+                }
+            }
         }
     });
     Html(page.build().into_string())
